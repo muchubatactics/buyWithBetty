@@ -16,9 +16,6 @@
 }
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin: 0;
   padding: 0;
   height: 100vh;
@@ -29,10 +26,5 @@ body {
     color: #213547;
     background-color: #ffffff;
   }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+  
 }
