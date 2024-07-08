@@ -1,0 +1,103 @@
+.logo {
+  font-family: 'Changa One';
+  position: relative;
+  font-size: 5em;
+  height: 2em;
+  width: 8.8em;
+  margin-bottom: 1em;
+}
+
+.logo > span {
+  position: absolute;
+  font-style: italic;
+  text-transform: uppercase;
+}
+
+.logo > .b {
+  top: 0;
+  left: 0;
+  font-size: 1.4em;
+  letter-spacing: -5px;
+}
+
+.w, .f {
+  top: 60%;
+  right: 78%;
+  font-size: 1em;
+}
+
+.by {
+  top: -12%;
+  left: 22%;
+  font-size: 2.6em;
+}
+
+.anim .w {
+  animation: slidew 10s ease infinite ;
+}
+
+.anim .f {
+  animation: slidef 10s ease infinite ;
+  opacity: 0;
+  transform: translateX(-0.5em);
+}
+
+@keyframes slidew {
+
+  35% {
+    transform: translateX(0em);
+    opacity: 1;
+  }
+
+  40% {
+    opacity: 0;
+  }
+
+  45% {
+    transform: translateX(-0.5em);
+    opacity: 0;
+  }
+
+  90% {
+    transform: translateX(-0.5em);
+    opacity: 0;
+  }
+
+  95% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(0em);
+  }
+}
+
+@keyframes slidef {
+
+  40% {
+    transform: translateX(-0.5em);
+    opacity: 0;
+  }
+
+  45% {
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateX(0em);
+    opacity: 1;
+  }
+
+  85% {
+    transform: translateX(0em);
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 0;
+  }
+
+  95% {
+    transform: translateX(-0.5em);
+  }
+}
