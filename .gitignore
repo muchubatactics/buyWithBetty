@@ -24,3 +24,5 @@ dist-ssr
 *.sw?
 
 plan.txt
+
+src/original-assets
