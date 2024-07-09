@@ -3,6 +3,8 @@ import { AnimLogo, Logo } from './logo.jsx';
 import { Link } from 'react-router-dom';
 
 import cssStyle from '../styles/homepage.module.css';
+import dragonImg from '../assets/dragon.png';
+import rdrImg from '../assets/rdr.png';
 
 export default function Homepage() {
   return (
@@ -24,6 +26,8 @@ export default function Homepage() {
           Aenean id sem id nibh faucibus iaculis vitae et erat. Nam blandit nec metus vel congue. Suspendisse dapibus arcu ac dolor auctor, id sollicitudin quam ornare.
         </article>
         <Link to='/shop'><button>Start Shopping</button></Link>
+        <img src={dragonImg} alt="Mario from Super Smash Bros" />
+        <img src={rdrImg} alt="Arthur Morgan from Red Dead Redemptio" />
       </main>
     </div>
   );

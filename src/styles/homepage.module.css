@@ -1,16 +1,16 @@
 .homepage header {
   display: flex;
-  background-color: rgb(61, 61, 61);
-  font-size: 3px;
+  background-color: rgb(48, 48, 48);
+  font-size: 4px;
   width: 100vw;
-  padding: 20px 5vw;
+  padding: 50px 10vw;
   box-sizing: border-box;
   justify-content: space-between;
   align-items: center;
 }
 
 .homepage header button {
-  padding: 10px 20px;
+  padding: 10px 30px;
   font-size: 7em;
   font-family: 'Ubuntu';
   border-radius: 30px;
@@ -27,12 +27,71 @@
 }
 
 .homepage main {
-  display: flex;
-  flex-direction: column;
+  padding-left: 20vw;
+  padding-top: 10vh;
+
+  display: grid;
+  max-width: 40vw;
   align-items: center;
-  justify-content: center;
 }
 
-.homepage main article {
-  max-width: 50vw;
+.homepage main img {
+  position: fixed;
+  width: auto;
+}
+
+.homepage > main > :nth-child(4) {
+  top: 10vh;
+  right: -10vw;
+  height: 90vh;
+  transform: rotateZ(-10deg);
+  z-index: -1;
+}
+
+.homepage > main > :nth-child(5) {
+  bottom: 0;
+  height: 300px;
+  left: 0;
+  opacity: 0.7;
+}
+
+.homepage main > a {
+  justify-self: end;
+}
+
+.homepage main button {
+  background-color: #ae8213;
+  border-radius: 30px;
+  padding: 10px 30px;
+  border: 0;
+
+  font-weight: 400;
+  font-family: 'Ubuntu';
+  font-size: 40px;
+
+  margin-top: 50px;
+} 
+
+.homepage a {
+  color: #e8b841bf;
+}
+
+.homepage a:visited {
+  color: #be952bbf;
+}
+
+
+
+@media (prefers-color-scheme: light) {
+  .homepage header {
+    color: #213547;
+    background-color: #dfdfdf;
+  }
+
+  .homepage main button {
+    background-color: #E7B538;
+    color: white;
+  }
+
+  
 }
