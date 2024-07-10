@@ -1,4 +1,4 @@
-import Shopheader from "./shopHeader";
+import Shopheader from "./shopHeader.jsx";
 
 export default function Shop() {
   return (
