@@ -3,7 +3,7 @@
   background-color: rgb(48, 48, 48);
   font-size: 4px;
   width: 100vw;
-  padding: 50px 10vw;
+  padding: 30px 10vw;
   box-sizing: border-box;
   justify-content: space-between;
   align-items: center;
@@ -33,11 +33,17 @@
   display: grid;
   max-width: 40vw;
   align-items: center;
+
+  font-size: 13px;
 }
 
 .homepage main img {
   position: fixed;
   width: auto;
+}
+
+.homepage main article {
+  font-size: 15px;
 }
 
 .homepage > main > :nth-child(4) {
@@ -67,7 +73,7 @@
 
   font-weight: 400;
   font-family: 'Ubuntu';
-  font-size: 40px;
+  font-size: 30px;
 
   margin-top: 50px;
 } 
@@ -95,3 +101,111 @@
 
   
 }
+
+@media (max-width: 1024px) {
+
+  .homepage header {
+    font-size: 3px;
+    padding: 10px 40px;
+  }
+
+  .homepage header button {
+    padding: 5px 10px;
+    font-size: 6em;
+  }
+
+  .homepage > main > :nth-child(4) {
+    right: -40vw;
+    height: 70vh;
+  }
+
+  .homepage main {
+    padding-left: 10vw;
+    padding-top: 5vh;
+
+    font-size: 14px;
+    max-width: 70vw;
+  }
+
+  .homepage main article {
+    font-size: 17px;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .homepage header {
+    font-size: 2px;
+    padding: 10px 30px;
+  }
+
+  .homepage header button {
+    padding: 5px 10px;
+    font-size: 6em;
+  }
+
+  .homepage main {
+    padding-left: 10vw;
+    padding-top: 5vh;
+
+    font-size: 8px;
+    max-width: 85vw;
+  }
+
+  .homepage main article {
+    font-size: 12px;
+  }
+
+  .homepage > main > :nth-child(5) {
+    height: 30vh;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .homepage header {
+    font-size: 2px;
+    padding: 10px 20px;
+  }
+
+  .homepage header button {
+    padding: 5px 10px;
+    font-size: 6em;
+  }
+
+  .homepage main {
+    padding-left: 10vw;
+    padding-top: 5vh;
+
+    font-size: 7px;
+    max-width: none;
+  }
+
+  .homepage main article {
+    font-size: 12px;
+  }
+
+  .homepage main > a {
+    justify-self: end;
+    margin-right: 20px;
+  }
+
+  .homepage main button {
+    padding: 10px 20px;  
+    font-size: 20px;
+    margin-top: 30px;
+  }
+
+  .homepage > main > :nth-child(4) {
+    right: -20vw;
+    top: auto;
+    height: 50vh;
+    bottom: 0;
+  }
+  
+  .homepage > main > :nth-child(5) {
+    display: none;
+  }
+}
+
