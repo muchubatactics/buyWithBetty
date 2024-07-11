@@ -1,0 +1,92 @@
+.container {
+  background-color: #242424;
+  padding: 5px 20px;
+  border-radius: 30px;
+  margin: 0 30px;
+
+  color: grey;
+}
+
+.container.focusedon {
+  background-color: rgb(236, 236, 236);
+  color: black;
+}
+
+.container.focusedon svg{
+  fill: black;
+}
+
+.container form {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.container form input {
+  outline: none;
+  border: 0;
+  background-color: transparent;
+
+  font-size: 1em;
+
+  flex: 1 1 auto;
+
+  color: inherit;
+}
+
+/* .dropdown {
+  position: absolute;
+  z-index: 1;
+} */
+
+.container:hover {
+  background-color: rgb(236, 236, 236);
+
+  color: black;
+}
+
+.container:hover svg {
+  fill: black;
+}
+
+.container svg {
+  width: auto;
+  height: 100%;
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+.container svg {
+  fill: grey;
+}
+
+.container input:hover {
+  outline: none;
+  border: 0;
+}
+
+.container input::placeholder {
+  color: grey;
+}
+
+
+@media (prefers-color-scheme: light) {
+  .container {
+    background-color: white;
+    color: rgb(78, 78, 78);
+  }
+
+  .container.focusedon {
+    background-color: rgb(216, 216, 216);
+    color: black;
+  }
+
+  .container:hover {
+    background-color: rgb(216, 216, 216);
+  }
+
+  .container svg {
+    fill: rgb(78, 78, 78);
+  }
+  
+}
