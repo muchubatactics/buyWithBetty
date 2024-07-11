@@ -5,6 +5,16 @@
   height: 2em;
   width: 8.8em;
   margin-bottom: 1em;
+
+  user-select: none;
+}
+
+.anim .logo:hover {
+  filter: none;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 1em #ae8213);
 }
 
 .logo > span {
@@ -100,4 +110,11 @@
   95% {
     transform: translateX(-0.5em);
   }
+}
+
+@media (prefers-color-scheme: light) {
+  .logo:hover {
+    filter: drop-shadow(0 0 2em #f5d78b);
+  }
+  
 }

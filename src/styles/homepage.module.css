@@ -1,6 +1,7 @@
 .homepage header {
   display: flex;
-  background-color: rgb(48, 48, 48);
+  /* background-color: rgb(48, 48, 48); */
+  background-color: #181818;
   font-size: 4px;
   width: 100vw;
   padding: 30px 5vw;
@@ -15,6 +16,8 @@
   font-family: 'Ubuntu';
   border-radius: 30px;
   border: 0px;
+
+  background-color: #333333;
 }
 
 .homepage button:hover {
@@ -91,12 +94,16 @@
 @media (prefers-color-scheme: light) {
   .homepage header {
     color: #213547;
-    background-color: #dfdfdf;
+    background-color: #ececec;
   }
 
   .homepage main button {
     background-color: #E7B538;
     color: white;
+  }
+
+  .homepage header button {
+    background-color: rgb(212, 212, 212);
   }
 
   
