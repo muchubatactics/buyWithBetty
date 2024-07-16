@@ -1,0 +1,15 @@
+.errorpage {
+  box-sizing: border-box;
+  margin-top: 10vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 10px;
+}
+
+.errorpage p, .errorpage a {
+  font-size: 2.5em;
+}
