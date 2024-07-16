@@ -4,7 +4,7 @@ import Homepage from "./homepage.jsx";
 import Shop from "./shop.jsx";
 import ErrorPage from "./errorpage.jsx";
 
-const router = createBrowserRouter([
+const routes = [
   {
     path: '/',
     element: <Homepage />,
@@ -14,6 +14,10 @@ const router = createBrowserRouter([
     path: 'shop',
     element: <Shop />,
   }
-]);
+];
+
+const router = createBrowserRouter(routes, {
+  basename: '/buyWithBetty',
+});
 
 export default router;
