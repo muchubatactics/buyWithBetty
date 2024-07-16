@@ -32,6 +32,8 @@
   flex: 1 1 auto;
 
   color: inherit;
+
+  font-family: 'Ubuntu', sans-serif;
 }
 
 /* .dropdown {
