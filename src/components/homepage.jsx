@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import cssStyle from '../styles/homepage.module.css';
 import dragonImg from '../assets/dragon.png';
-import rdrImg from '../assets/rdr.png';
+// import rdrImg from '../assets/rdr.png';
 
 export default function Homepage() {
   return (
@@ -27,7 +27,7 @@ export default function Homepage() {
         </article>
         <Link to='/shop'><button>Start Shopping</button></Link>
         <img src={dragonImg} alt="Mario from Super Smash Bros" />
-        <img src={rdrImg} alt="Arthur Morgan from Red Dead Redemptio" />
+        {/* <img src={rdrImg} alt="Arthur Morgan from Red Dead Redemption" /> */}
       </main>
     </div>
   );
