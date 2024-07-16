@@ -2,11 +2,13 @@ import { createBrowserRouter } from "react-router-dom";
 
 import Homepage from "./homepage.jsx";
 import Shop from "./shop.jsx";
+import ErrorPage from "./errorpage.jsx";
 
 const router = createBrowserRouter([
   {
-    path: '/BuyWithBetty',
+    path: '/',
     element: <Homepage />,
+    errorElement: <ErrorPage />,
   },
   {
     path: 'shop',
