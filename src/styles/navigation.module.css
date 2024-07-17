@@ -22,14 +22,14 @@
   fill: black;
   transition: fill 500ms ease;
 }
-/* 
+
 .navigation > a.selected > :nth-child(1) {
   background-color: white;
 }
 
 .navigation > a.selected > :nth-child(1) > svg {
   fill: black;
-} */
+}
 
 .navigation > p {
   font-family: 'Poppins', sans-serif;

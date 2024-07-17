@@ -6,14 +6,14 @@ import shopstyles from '../styles/shop.module.css';
 
 export default function Shop() {
   return (
-    <>
+    <div style={{position: 'relative'}}>
       <Shopheader />
       <main className={shopstyles.main}>
         <nav className={shopstyles.sidebar}>
           <Navigation />
         </nav>
-        <Outlet className={shopstyles.maingoa}></Outlet>
+        <Outlet></Outlet>
       </main>
-    </>
+    </div>
   );
 }
