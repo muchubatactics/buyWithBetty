@@ -1,0 +1,58 @@
+.navigation {
+  overflow-y: scroll;
+  height: 100%;
+  width: 100%;
+}
+
+.navigation > a {
+  display: flex;
+  align-items: center;
+  margin: 10px 0px;
+  font-family: 'Poppins', sans-serif;
+  text-decoration: none;
+  color: white;
+}
+
+.navigation > a:hover > :nth-child(1) {
+  background-color: white;
+  transition: background-color 500ms ease;
+}
+
+.navigation > a:hover > :nth-child(1) > svg {
+  fill: black;
+  transition: fill 500ms ease;
+}
+/* 
+.navigation > a.selected > :nth-child(1) {
+  background-color: white;
+}
+
+.navigation > a.selected > :nth-child(1) > svg {
+  fill: black;
+} */
+
+.navigation > p {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.7em;
+  margin: 0;
+  margin-top: 20px;
+}
+
+.navigation > a > :nth-child(1) {
+  height: 38px;
+  width: 38px;
+  background-color: #242424;
+  border-radius: 8px;
+  padding: 7px;
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.navigation > a > :nth-child(1) > svg{
+  fill: white;
+}

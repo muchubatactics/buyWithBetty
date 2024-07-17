@@ -1,5 +1,6 @@
 import Shopheader from "./shopHeader.jsx";
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import Navigation from "./navigation.jsx";
 
 import shopstyles from '../styles/shop.module.css';
 
@@ -7,9 +8,9 @@ export default function Shop() {
   return (
     <>
       <Shopheader />
-      <main>
+      <main className={shopstyles.main}>
         <nav className={shopstyles.sidebar}>
-          <Link></Link>
+          <Navigation />
         </nav>
         <Outlet className={shopstyles.maingoa}></Outlet>
       </main>
