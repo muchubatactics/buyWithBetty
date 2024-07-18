@@ -6,6 +6,8 @@
   box-sizing: border-box;
 
   align-items: center;
+
+  position: relative;
 }
 
 .shopheader > .logolink {
@@ -38,6 +40,65 @@
 .shopheader > .cart > svg {
   height: 60%;
   width: auto;
+}
+
+.shopheader > .dialoghelp {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #00000088;
+  height: 0;
+  width: 100vw;
+  z-index: 1;
+
+  opacity: 0;
+
+  transition: opacity 500ms ease, height 1ms ease;
+}
+
+.shopheader > .dialoghelp.on {
+  opacity: 1;
+  height: 100vh;
+}
+
+.shopheader > .cart-itself {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  
+  height: 100vh;
+  width: 25vw;
+
+  transform: translateX(25vw);
+
+  transition: transform 500ms ease;
+
+  background-color: rgb(32, 32, 32);
+}
+
+.shopheader > .cart-itself.on {
+  transform: translateX(0);
+  animation: onopen 500ms ease-in-out 1 ;
+}
+
+
+@keyframes onopen {
+  0% {
+    transform: translateX(25vw);
+  }
+  
+  80%{
+    transform: translateX(-2vw);
+  }
+
+  100%{
+    transform: translateX(0);
+  }
+}
+
+body {
+  overflow-x: hidden;
 }
 
 @media (prefers-color-scheme: light) {
