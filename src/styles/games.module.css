@@ -25,11 +25,9 @@
 
 .games > main {
   display: grid;
-  grid-template-columns: repeat(7, 200px);
-  grid-template-rows: 200px;
+  grid-template-columns: repeat(4, 1fr);
 
-  /* grid-auto-flow: column; */
-  grid-auto-columns: min-content;
+  grid-auto-flow: row;
 
   gap: 10px;
 }
@@ -37,6 +35,10 @@
 .games .game {
   display: flex;
   flex-direction: column;
-  height: 200px;
-  width: 200px;
+  background-color: red;
 }
+
+.games .game > img {
+  width: 100%;
+}
+

@@ -1,10 +1,11 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import styles from '../styles/games.module.css';
 import { useEffect, useState } from "react";
 
 export default function Games() {
   let { gamesId } = useParams();
+  console.log(gamesId);
   const [loading, setLoading] = useState(true);
   const [games, setGames] = useState([]);
 
@@ -50,6 +51,7 @@ export default function Games() {
     }
   }, []);
 
+
   return (
     <div className={styles.games}>
       <h1>{gamesId}</h1>
@@ -66,11 +68,17 @@ export default function Games() {
           <p>loading...</p>
           :
           games.map((game) => {
+            let imgs = [];
+            for (let i = 0; i < game.screenshots.length; i++) {
+              imgs.push(game.screenshots[i].image);
+            }
+            console.log("game->", imgs);
+            let str = `/shop/game/${game.id}`;
             return (
-              <div className={styles.game} key={game.id}>
+              <Link to={str} state={{ screenshots: [...imgs] }} className={styles.game} key={game.id}>
                 <img src={game.background_image} alt="" />
                 <span>{game.name}</span>
-              </div>
+              </Link>
             );
           })
         }
