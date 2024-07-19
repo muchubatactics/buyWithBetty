@@ -1,9 +1,11 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 
 import Homepage from "./homepage.jsx";
 import Shop from "./shop.jsx";
 import ErrorPage from "./errorpage.jsx";
 import Games from "./games.jsx";
+import Game from "./game.jsx";
+import MainShop from "./mainShop.jsx";
 
 const routes = [
   {
@@ -16,10 +18,28 @@ const routes = [
     element: <Shop />,
     children: [
       {
-        path: 'games/:gamesId',
-        element: <Games />
+        index: true,
+        element: <Navigate to='games' />
       },
-    ],
+      {
+        path: 'games',
+        element: <MainShop />,
+        children: [
+          {
+            index: true,
+            element: <Navigate to='All time top' />,
+          },
+          {
+            path: ':gamesId',
+            element: <Games />
+          }
+        ]
+      },
+      {
+        path: 'game/:gameId',
+        element: <Game />
+      }
+    ]
   }
 ];
 
