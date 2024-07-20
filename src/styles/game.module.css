@@ -1,12 +1,12 @@
 .game {
   display: flex;
   flex-direction: column;
-  padding: 0px 40px;
-
+  padding-right: 40px;
   max-height: 88vh;
 }
 
 .heading {
+  user-select: none;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -21,10 +21,16 @@
   font-weight: 600;
 }
 
+.heading > :nth-child(1):hover {
+  cursor: pointer;
+}
+
+
 .heading > :nth-child(1) > :nth-child(1) {
   width: 1.5em;
   height: 1.5em;
   margin-right: 20px;
+  margin-left: 40px;
 }
 
 .heading > :nth-child(2) {
@@ -34,8 +40,7 @@
 
 .main {
   display: grid;
-  grid-template-columns: 2.5fr 1fr;
-  column-gap: 40px;
+  grid-template-columns: 3fr 1fr;
 
   max-height: 100%;
 }
@@ -89,8 +94,9 @@
 }
 
 .main > :nth-child(1) {
-  height: 75vh;
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .main > :nth-child(2) {

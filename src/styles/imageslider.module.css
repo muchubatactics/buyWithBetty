@@ -1,6 +1,7 @@
 .imageslider {
   position: relative;
   border-radius: 30px;
+  width: 66vw;
 
   overflow: hidden;
 }
@@ -39,15 +40,13 @@
 .main {
   display: flex;
   width: 100%;
-  height: 100%;
 
-  overflow: hidden;
+  /* overflow: hidden; */
   transition: transform ease-in-out 500ms;
 }
 
-.main img {
-  width: 1285px;
-  height: auto;
+.main > img {
+  width: 100%;
 }
 
 /* .main > div {

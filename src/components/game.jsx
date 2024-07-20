@@ -63,7 +63,9 @@ export default function Game() {
             <div>{gameDetails.name}</div>
           </div>
           <div className={styles.main}>
-            <ImageSlider images={screenshots} />
+            <div>
+              <ImageSlider className={styles.slider} images={screenshots} />
+            </div>
             <div>
               <div className={styles.description}>
                 <h1>Description</h1>
