@@ -9,8 +9,8 @@ export default function Games() {
   const [loading, setLoading] = useState(true);
   const [games, setGames] = useState([]);
 
-  // const ky = '0d8f5888225b4c37b78af65363f639cd';
-  const ky = '';
+  const ky = '0d8f5888225b4c37b78af65363f639cd';
+  // const ky = '';
 
   useEffect(() => {
     let res = [];

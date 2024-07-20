@@ -1,0 +1,114 @@
+.game {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 40px;
+
+  max-height: 88vh;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.heading > :nth-child(1) {
+  display: flex;
+  align-items: center;
+
+  font-size: 1.5em;
+  font-family: 'Poppins';
+  font-weight: 600;
+}
+
+.heading > :nth-child(1) > :nth-child(1) {
+  width: 1.5em;
+  height: 1.5em;
+  margin-right: 20px;
+}
+
+.heading > :nth-child(2) {
+  font-family: 'Changa One', sans-serif;
+  font-size: 4em;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 2.5fr 1fr;
+  column-gap: 40px;
+
+  max-height: 100%;
+}
+
+.description, .moredetails {
+  padding: 20px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  background: linear-gradient(to right, transparent, #181818);
+  position: relative;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+.description > .overlay {
+  position: absolute;
+  bottom: -18px;
+  left: 0;
+  height: 20%;
+  width: 100%;
+  background: linear-gradient(to top, black, black, transparent);
+}
+
+.description div {
+  max-height: 40vh;
+  overflow-y: scroll;
+}
+
+.description > ::-webkit-scrollbar {
+  display: none;
+}
+
+.main .description  h1 {
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  font-family: 'Poppins';
+  font-weight: 800;
+}
+
+.moredetails {
+  color: #949494;
+}
+
+.moredetails a {
+  text-decoration: none;
+  color: #949494;
+}
+
+.main > :nth-child(2) .moredetails > span {
+  display: block;
+}
+
+.main > :nth-child(1) {
+  height: 75vh;
+  width: 100%;
+}
+
+.main > :nth-child(2) {
+  display: flex;
+  flex-direction: column;
+}
+
+.main > :nth-child(2) > :nth-child(3) {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px;
+  border-radius: 10px;
+  background: linear-gradient(to right, transparent, #181818);
+  position: relative;
+  box-sizing: border-box;
+
+  margin-top: auto;
+}
+
+

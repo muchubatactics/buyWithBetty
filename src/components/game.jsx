@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
+import ImageSlider from "./imageslider";
+
+import styles from '../styles/game.module.css';
 
 export default function Game() {
   const [gameDetails, setGameDetails] = useState(null);
@@ -8,8 +11,8 @@ export default function Game() {
   const { screenshots } = location.state || {};
   const [isLoading, setIsLoading] = useState(true);
 
-  const ky = '';
-  // const ky = '0d8f5888225b4c37b78af65363f639cd';
+  // const ky = '';
+  const ky = '0d8f5888225b4c37b78af65363f639cd';
 
   console.log(screenshots);
 
@@ -45,33 +48,51 @@ export default function Game() {
     }
   }, [gameId])
   return (
-    <>
+    <div className={styles.game}>
       {
         isLoading ? <p>loading...</p>
         :
         <>
-          <h1>{gameDetails.name}</h1>
-          <div>
-            {/* {
-              screenshots.map((img) => {
-                return (<img src={img} alt=""/>)
-              })
-            } */}
+          <div className={styles.heading}>
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+                <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z"/>
+              </svg>
+              Back to Betty
+            </div>
+            <div>{gameDetails.name}</div>
           </div>
-          <h1>Description</h1>
-          {gameDetails.description}
-          <h4>Website</h4>
-          <p>{gameDetails.website}</p>
-          <h4>Released</h4>
-          <p>{gameDetails.released}</p>
-          <h4>Platforms</h4>
-          {/* {
-            gameDetails.platforms.map((obj) => {
-              return (<p>{obj.platform}</p>);
-            })
-          } */}
+          <div className={styles.main}>
+            <ImageSlider images={screenshots} />
+            <div>
+              <div className={styles.description}>
+                <h1>Description</h1>
+                <div dangerouslySetInnerHTML={{__html: gameDetails.description}}></div>
+                <div className={styles.overlay}></div>  
+              </div>
+              <div className={styles.moredetails}>
+                <span>
+                  Website: <a href={gameDetails.website}>{gameDetails.website}</a>
+                </span>
+                <span>
+                  Released: {gameDetails.released}
+                </span>
+                <span>Platforms:
+                  {
+                    // gameDetails.platforms.map((obj) => {
+                    //   return (<p>{obj.platform}</p>);
+                    // })
+                  }
+                </span>
+              </div>
+              <div>
+                <span>$100</span>
+                <span>Added</span>
+              </div>
+            </div>
+          </div>
         </>
       }
-    </>
+    </div>
   );
 }
