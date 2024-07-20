@@ -27,9 +27,18 @@ export default function ImageSlider({images}) {
           <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"/>
         </svg>
       </div>
+      <div className={styles.progress}>
+        <div>
+          {
+            images.map((_, i) => {
+              return <div key={tmp++} style={cur == i ? { padding: '3px', backgroundColor: '#ae8213'} : {}}></div>
+            })
+          }
+        </div>
+      </div>
       <div className={styles.main} style={
         {
-          transform: `translateX(-${cur * 66}vw)`
+          transform: `translateX(-${cur * 70}vw)`
         }
       }>
         {

@@ -1,7 +1,7 @@
 .imageslider {
   position: relative;
   border-radius: 30px;
-  width: 66vw;
+  width: 70vw;
 
   overflow: hidden;
 }
@@ -47,10 +47,29 @@
 
 .main > img {
   width: 100%;
+  min-width: 100%;
 }
 
-/* .main > div {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-} */
+.progress {
+  position: absolute;
+  bottom: 20px;
+  right: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.progress > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.progress > div > div {
+  background-color: white;
+  opacity: 0.7;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  transition: all 500ms;
+}
