@@ -38,7 +38,7 @@ export default function ImageSlider({images}) {
       </div>
       <div className={styles.main} style={
         {
-          transform: `translateX(-${cur * 70}vw)`
+          transform: `translateX(-${cur * 100}%)`
         }
       }>
         {

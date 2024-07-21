@@ -1,7 +1,8 @@
 .imageslider {
   position: relative;
   border-radius: 30px;
-  width: 70vw;
+
+  max-height: 75vh;
 
   overflow: hidden;
 }

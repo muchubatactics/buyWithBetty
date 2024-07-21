@@ -1,7 +1,7 @@
 .game {
   display: flex;
   flex-direction: column;
-  padding-right: 40px;
+  padding: 0 40px;
   max-height: 88vh;
 }
 
@@ -30,7 +30,6 @@
   width: 1.5em;
   height: 1.5em;
   margin-right: 20px;
-  margin-left: 40px;
 }
 
 .heading > :nth-child(2) {
@@ -41,6 +40,8 @@
 .main {
   display: grid;
   grid-template-columns: 3fr 1fr;
+
+  column-gap: 20px;
 
   max-height: 100%;
 }
