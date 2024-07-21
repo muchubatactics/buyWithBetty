@@ -72,13 +72,24 @@ export default function Games() {
             for (let i = 0; i < game.screenshots.length; i++) {
               imgs.push(game.screenshots[i].image);
             }
-            console.log("game->", imgs);
             let str = `/shop/game/${game.id}`;
             return (
-              <Link to={str} state={{ screenshots: [...imgs] }} className={styles.game} key={game.id}>
-                <img src={game.background_image} alt="" />
-                <span>{game.name}</span>
-              </Link>
+              <div className={styles.game} key={game.id}>
+                <Link to={str} state={{ screenshots: [...imgs] }} >
+                  <img src={game.background_image} alt="" />
+                </Link>
+                <div>
+                  <div>
+                    <span>Add to cart</span>
+                    <span>$49.9</span>
+                  </div>
+                  <div>Platforms</div>
+                  <Link to={str} state={{ screenshots: [...imgs] }} >
+                    <span>{game.name}</span>
+                  </Link>
+                </div>
+              </div>
+
             );
           })
         }
