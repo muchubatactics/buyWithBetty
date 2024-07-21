@@ -32,6 +32,10 @@ body {
   
 }
 
+.no-scroll {
+  overflow: hidden;
+}
+
 @media (max-width: 1024px) {
   
 }
