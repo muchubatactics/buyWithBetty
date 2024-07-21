@@ -118,4 +118,25 @@
   margin-top: auto;
 }
 
+@media (prefers-color-scheme: light) {
+  .heading svg {
+    fill: black;
+  }
 
+  .description, .moredetails {
+    background: linear-gradient(to right, transparent, #e2e2e2);
+  }
+
+  .description > .overlay {
+    background: linear-gradient(to top, white, white, transparent);
+  }
+
+  .moredetails, .moredetails a {
+    color: #6b6b6b;
+  }
+
+  .main > :nth-child(2) > :nth-child(3) {
+    background: linear-gradient(to right, transparent, #e2e2e2);
+  }
+
+}

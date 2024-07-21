@@ -56,3 +56,36 @@
 .navigation > a > :nth-child(1) > svg{
   fill: white;
 }
+
+@media (prefers-color-scheme: light) {
+  .navigation > a {
+    color: #242424;
+  }
+
+  .navigation > a:hover > :nth-child(1) {
+    background-color: #242424;
+  }
+
+  .navigation > a.selected > :nth-child(1) {
+    background-color: #242424;
+  }
+
+  .navigation > a.selected > :nth-child(1) > svg, .navigation > a:hover > :nth-child(1) > svg {
+    fill: white;
+  }
+
+  .navigation > a.selected > :nth-child(1) {
+    background-color: #242424;
+  }
+
+  .navigation > a > :nth-child(1) {
+    background-color: #e4e4e4;
+  }
+
+  .navigation > a > :nth-child(1) > svg {
+    fill: black;
+  }
+
+
+  
+}

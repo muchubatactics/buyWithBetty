@@ -33,3 +33,19 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #555; 
 }
+
+@media (prefers-color-scheme: light) {
+  ::-webkit-scrollbar-track {
+    background: white; 
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #c4c4c4; 
+    border-radius: 6px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #a3a3a3; 
+  }
+  
+}

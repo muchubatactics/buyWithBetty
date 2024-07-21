@@ -7,11 +7,9 @@
 
   align-items: center;
 
-  position: sticky;
   top: 0;
   background-color: black;
 
-  z-index: 5;
 }
 
 .shopheader > .logolink {
