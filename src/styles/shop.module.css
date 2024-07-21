@@ -16,3 +16,20 @@
 .sidebar ::-webkit-scrollbar {
   display: none;
 }
+
+::-webkit-scrollbar {
+  width: 6px; 
+}
+
+::-webkit-scrollbar-track {
+  background: black; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333333; 
+  border-radius: 6px; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
