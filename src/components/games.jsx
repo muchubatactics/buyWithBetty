@@ -6,7 +6,6 @@ import Loading from "./loading.jsx";
 
 export default function Games() {
   let { gamesId } = useParams();
-  console.log(gamesId);
   const [loading, setLoading] = useState(true);
   const [games, setGames] = useState([]);
 

@@ -1,0 +1,25 @@
+.pagetransition {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.pagetransition > :nth-child(1) {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s ease, opacity 0.8s ease;
+
+  box-sizing: border-box;
+
+}
+
+.pagetransition.fadeIn > :nth-child(1) {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.pagetransition.fadeOut > :nth-child(1) {
+  transform: translateX(10%);
+  opacity: 0;
+}

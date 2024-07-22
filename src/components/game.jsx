@@ -3,7 +3,6 @@ import { useLocation, useParams } from "react-router-dom";
 import ImageSlider from "./imageslider";
 
 import styles from '../styles/game.module.css';
-import Loading from "./loading";
 
 export default function Game() {
   const [gameDetails, setGameDetails] = useState(null);
@@ -15,7 +14,6 @@ export default function Game() {
   // const ky = '';
   const ky = '0d8f5888225b4c37b78af65363f639cd';
 
-  console.log(screenshots);
 
   useEffect(() => {
     fetch(`https://api.rawg.io/api/games/${gameId}?key=${ky}`, {
@@ -51,8 +49,6 @@ export default function Game() {
   return (
     <div className={styles.game}>
       {
-        isLoading ? <Loading />
-        :
         <>
           <div className={styles.heading}>
             <div>
@@ -61,7 +57,7 @@ export default function Game() {
               </svg>
               Back to Betty
             </div>
-            <div>{gameDetails.name}</div>
+            {isLoading ? null : <><div>{gameDetails.name}</div></>}
           </div>
           <div className={styles.main}>
             <div>
@@ -70,15 +66,15 @@ export default function Game() {
             <div>
               <div className={styles.description}>
                 <h1>Description</h1>
-                <div dangerouslySetInnerHTML={{__html: gameDetails.description}}></div>
+                {isLoading ? null : <><div dangerouslySetInnerHTML={{__html: gameDetails.description}}></div></>}
                 <div className={styles.overlay}></div>  
               </div>
               <div className={styles.moredetails}>
                 <span>
-                  Website: <a href={gameDetails.website}>{gameDetails.website}</a>
+                  {isLoading ? null : <>Website: <a href={gameDetails.website}>{gameDetails.website}</a></>}
                 </span>
                 <span>
-                  Released: {gameDetails.released}
+                  {isLoading ? null : <>Released: {gameDetails.released}</>}
                 </span>
                 <span>Platforms:
                   {
