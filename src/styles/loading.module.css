@@ -1,0 +1,28 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5em 0px;
+}
+
+.loader {
+  width: 3em;
+  height: 3em;
+  
+  border-width: 0.5em;
+  border-style: solid;
+  border-color: goldenrod green white grey;
+  border-radius: 50%;
+
+  position: relative;
+
+  animation: spin 2s infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+  
+}
