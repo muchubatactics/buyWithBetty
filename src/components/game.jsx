@@ -3,6 +3,7 @@ import { useLocation, useParams } from "react-router-dom";
 import ImageSlider from "./imageslider";
 
 import styles from '../styles/game.module.css';
+import Loading from "./loading";
 
 export default function Game() {
   const [gameDetails, setGameDetails] = useState(null);
@@ -50,7 +51,7 @@ export default function Game() {
   return (
     <div className={styles.game}>
       {
-        isLoading ? <p>loading...</p>
+        isLoading ? <Loading />
         :
         <>
           <div className={styles.heading}>

@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 
 import styles from '../styles/games.module.css';
 import { useEffect, useState } from "react";
+import Loading from "./loading.jsx";
 
 export default function Games() {
   let { gamesId } = useParams();
@@ -62,38 +63,40 @@ export default function Games() {
           <button>single</button>
         </div>
       </div>
-      <main>
-        {
-          loading ?
-          <p>loading...</p>
-          :
-          games.map((game) => {
-            let imgs = [];
-            for (let i = 0; i < game.screenshots.length; i++) {
-              imgs.push(game.screenshots[i].image);
-            }
-            let str = `/shop/game/${game.id}`;
-            return (
-              <div className={styles.game} key={game.id}>
-                <Link to={str} state={{ screenshots: [...imgs] }} >
-                  <img src={game.background_image} alt="" />
-                </Link>
-                <div>
-                  <div>
-                    <span>Add to cart</span>
-                    <span>$49.9</span>
-                  </div>
-                  <div>Platforms</div>
+      {
+        loading ?
+        <Loading />
+        :
+        <main>
+          {
+            games.map((game) => {
+              let imgs = [];
+              for (let i = 0; i < game.screenshots.length; i++) {
+                imgs.push(game.screenshots[i].image);
+              }
+              let str = `/shop/game/${game.id}`;
+              return (
+                <div className={styles.game} key={game.id}>
                   <Link to={str} state={{ screenshots: [...imgs] }} >
-                    <span>{game.name}</span>
+                    <img src={game.background_image} alt="" />
                   </Link>
+                  <div>
+                    <div>
+                      <span>Add to cart</span>
+                      <span>$49.9</span>
+                    </div>
+                    <div>Platforms</div>
+                    <Link to={str} state={{ screenshots: [...imgs] }} >
+                      <span>{game.name}</span>
+                    </Link>
+                  </div>
                 </div>
-              </div>
 
-            );
-          })
-        }
-      </main>
+              );
+            })
+          }
+        </main>
+      }
 
     </div>
   );
