@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import ImageSlider from "./imageslider";
+import { Link } from "react-router-dom";
 
 import styles from '../styles/game.module.css';
 
@@ -45,18 +46,19 @@ export default function Game() {
     return () => {
       //cleanup
     }
-  }, [gameId])
+  }, [gameId]);
+
   return (
     <div className={styles.game}>
       {
         <>
           <div className={styles.heading}>
-            <div>
+            <Link to='/shop'>
               <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
                 <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z"/>
               </svg>
               Back to Betty
-            </div>
+            </Link>
             {isLoading ? null : <><div>{gameDetails.name}</div></>}
           </div>
           <div className={styles.main}>

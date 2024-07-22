@@ -8,18 +8,40 @@
 .pagetransition > :nth-child(1) {
   width: 100%;
   height: 100%;
-  transition: transform 0.8s ease, opacity 0.8s ease;
 
   box-sizing: border-box;
-
 }
 
-.pagetransition.fadeIn > :nth-child(1) {
-  transform: translateX(0);
-  opacity: 1;
+.fadeIn > :nth-child(1) {
+  animation: fi 800ms ease  1  ;
 }
 
-.pagetransition.fadeOut > :nth-child(1) {
-  transform: translateX(10%);
-  opacity: 0;
+@keyframes fi {
+  0% {
+    opacity: 0;
+    transform: translateX(5%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+  
 }
+
+/* .fadeOut > :nth-child(1) {
+  animation: fo 800ms ease  1  ;
+}
+
+@keyframes fo {
+  0% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-5%);
+  }
+  
+} */

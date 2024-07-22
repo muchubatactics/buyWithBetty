@@ -11,7 +11,7 @@
   align-items: center;
   justify-content: space-between;
 
-  min-height: 90px;
+  min-height: 96px;
 }
 
 .heading > :nth-child(1) {
@@ -21,17 +21,28 @@
   font-size: 1.5em;
   font-family: 'Poppins';
   font-weight: 600;
+
+  text-decoration: none;
+  color: inherit;
+
+  transition: color 400ms ease;
 }
 
 .heading > :nth-child(1):hover {
   cursor: pointer;
+  color: #ae8213;
 }
 
+.heading > :nth-child(1):hover > :nth-child(1) {
+  fill: #ae8213;
+}
 
 .heading > :nth-child(1) > :nth-child(1) {
   width: 1.5em;
   height: 1.5em;
   margin-right: 20px;
+
+  transition: fill 400ms ease;
 }
 
 .heading > :nth-child(2) {
