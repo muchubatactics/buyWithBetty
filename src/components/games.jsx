@@ -38,13 +38,13 @@ export default function Games() {
 
         res.push(obj);
       }
+
+      setGames(res);
+      setLoading(false);
       
     }).catch((err) => {
       console.error(err);
-    }).finally(() => {
-      setGames(res);
-      setLoading(false);
-    });
+    }).finally(() => {});
 
     return () => {
 
