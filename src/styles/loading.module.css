@@ -6,23 +6,41 @@
   padding: 5em 0px;
 }
 
-.loader {
-  width: 3em;
-  height: 3em;
-  
-  border-width: 0.5em;
-  border-style: solid;
-  border-color: goldenrod green white grey;
-  border-radius: 50%;
-
-  position: relative;
-
-  animation: spin 2s infinite;
+.circle {
+  fill: none;
+  stroke: goldenrod;
+  stroke-width: 3;
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
+  animation: circle-anim calc(2.5s * 3 / 4) ease-in-out infinite;
 }
 
-@keyframes spin {
+.container > svg {
+  width: 5em;
+  height: 5em;
+  transform-origin: center;
+  animation: svg-anim 2.5s linear infinite;
+}
+
+@keyframes svg-anim {
   100% {
-    transform: rotate(360deg);
+    transform:rotate(360deg);
+  }
+}
+
+@keyframes circle-anim {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90, 200;
+    stroke-dashoffset: -35px;
   }
   
+  100% {
+    stroke-dashoffset: -125px;
+  }
 }
