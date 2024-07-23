@@ -1,21 +1,28 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import styles from '../styles/games.module.css';
 import { useEffect, useState } from "react";
 import Loading from "./loading.jsx";
 
+import res from "./setup.jsx";
+
 export default function Games() {
-  let { gamesId } = useParams();
   const [loading, setLoading] = useState(true);
   const [games, setGames] = useState([]);
 
-  const ky = '0d8f5888225b4c37b78af65363f639cd';
-  // const ky = '';
+  const location = useLocation();
+  console.log(location);
+
 
   useEffect(() => {
-    let res = [];
+    setLoading(true);
+    let result = [];
 
-    fetch(`https://api.rawg.io/api/games?key=${ky}`, {
+    let url = `${res.baseURL}games?key=${res.ky}`;
+    if (location.state && location.state.type == 'genre') url += `&genres=${location.state.id}`;
+    if (location.state && location.state.type == 'platform') url += `&parent_platforms=${location.state.id}`;
+
+    fetch(url, {
       method: "GET",
       mode: "cors",
       headers: {
@@ -36,10 +43,10 @@ export default function Games() {
           screenshots: [...Response.results[i].short_screenshots],
         }
 
-        res.push(obj);
+        result.push(obj);
       }
 
-      setGames(res);
+      setGames(result);
       setLoading(false);
       
     }).catch((err) => {
@@ -49,12 +56,12 @@ export default function Games() {
     return () => {
 
     }
-  }, []);
+  }, [location.state]);
 
 
   return (
     <div className={styles.games}>
-      <h1>{gamesId}</h1>
+      <h1>{location.state ? location.state.name : 'All time top'}</h1>
       <div className={styles.custom}>
         <div>
           <span>Display options: </span>
@@ -76,7 +83,7 @@ export default function Games() {
               let str = `/shop/game/${game.id}`;
               return (
                 <div className={styles.game} key={game.id}>
-                  <Link to={str} state={{ screenshots: [...imgs] }} >
+                  <Link to={str} state={{ screenshots: [...imgs], prev: {...location.state} }} >
                     <img src={game.background_image} alt="" />
                   </Link>
                   <div>
@@ -85,7 +92,7 @@ export default function Games() {
                       <span>$49.9</span>
                     </div>
                     <div>Platforms</div>
-                    <Link to={str} state={{ screenshots: [...imgs] }} >
+                    <Link to={str} state={{ screenshots: [...imgs], prev: {...location.state} }} >
                       <span>{game.name}</span>
                     </Link>
                   </div>

@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 
 import styles from '../styles/game.module.css';
 
+import res from "./setup.jsx";
+
 export default function Game() {
   const [gameDetails, setGameDetails] = useState(null);
   const location = useLocation();
@@ -12,12 +14,10 @@ export default function Game() {
   const { screenshots } = location.state || {};
   const [isLoading, setIsLoading] = useState(true);
 
-  // const ky = '';
-  const ky = '0d8f5888225b4c37b78af65363f639cd';
-
+  console.log(location);
 
   useEffect(() => {
-    fetch(`https://api.rawg.io/api/games/${gameId}?key=${ky}`, {
+    fetch(`https://api.rawg.io/api/games/${gameId}?key=${res.ky}`, {
       method: 'GET',
       mode: 'cors',
       headers: {
@@ -53,7 +53,7 @@ export default function Game() {
       {
         <>
           <div className={styles.heading}>
-            <Link to='/shop'>
+            <Link to='/shop/games/p' state={ {...location.prev} }>
               <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
                 <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z"/>
               </svg>

@@ -28,7 +28,7 @@ const routes = [
         children: [
           {
             index: true,
-            element: <Navigate to='All time top' />,
+            element: <Navigate to='p' />,
           },
           {
             path: ':gamesId',

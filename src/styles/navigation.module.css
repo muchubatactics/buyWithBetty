@@ -4,21 +4,23 @@
   user-select: none;
 }
 
-.navigation > a {
+.navigation > a, .navigation > button {
   display: flex;
   align-items: center;
   margin: 10px 0px;
   font-family: 'Poppins', sans-serif;
   text-decoration: none;
   color: white;
+
+  font-size: 16px;
 }
 
-.navigation > a:hover > :nth-child(1) {
+.navigation > a:hover > :nth-child(1), .navigation > button:hover > :nth-child(1) {
   background-color: white;
   transition: background-color 500ms ease;
 }
 
-.navigation > a:hover > :nth-child(1) > svg {
+.navigation > a:hover > :nth-child(1) > svg, .navigation > button:hover > :nth-child(1) > svg {
   fill: black;
   transition: fill 500ms ease;
 }
@@ -39,7 +41,7 @@
   margin-top: 20px;
 }
 
-.navigation > a > :nth-child(1) {
+.navigation > a > :nth-child(1), .navigation > button > :nth-child(1) {
   height: 38px;
   width: 38px;
   background-color: #242424;
@@ -55,6 +57,19 @@
 
 .navigation > a > :nth-child(1) > svg{
   fill: white;
+}
+
+.navigation > a > :nth-child(1) > img {
+  height: 100%;
+  width: 100%;
+}
+
+.navigation > button {
+  border: 0;
+  background-color: transparent;
+  padding: 0;
+
+  opacity: 0.5;
 }
 
 @media (prefers-color-scheme: light) {
