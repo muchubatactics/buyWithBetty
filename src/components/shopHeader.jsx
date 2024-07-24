@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 import Searchbar from "./searchbar";
 
 import '../styles/shopheader.css';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Shopheader() {
   const [showDialog, setShowDiaog] = useState(false);
+  const [scrollDirection, setScrollDirection] = useState(null);
 
   /// very very very naughty. One could even say, DIRTY!!
   if (showDialog) {
@@ -15,8 +16,26 @@ export default function Shopheader() {
     document.getElementById('root').classList.remove('no-scroll');
   }
 
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    function handleSroll() {
+      let currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY) setScrollDirection('down');
+      else setScrollDirection('up');
+
+      lastScrollY = currentScrollY;
+    }
+
+    window.addEventListener('scroll', handleSroll)
+    return () => {
+      window.removeEventListener('scroll', handleSroll);
+    }
+  }, [])
+
   return (
-    <header className="shopheader">
+    <header className={scrollDirection === 'down' ? "shopheader down" : "shopheader up"}>
       <Link to='/' className="logolink"><Logo /></Link>
       <Searchbar />
       <div className="cart" onClick={()=>{setShowDiaog(true)}}>

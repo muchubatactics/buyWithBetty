@@ -7,9 +7,22 @@
 
   align-items: center;
 
-  top: 0;
-  background-color: black;
+  position: sticky;
+  position: -webkit-sticky;
 
+  background-color: black;
+  z-index: 10;
+
+  transition: top ease 500ms;
+  
+}
+
+.shopheader.down {
+  top: -100px;
+}
+
+.shopheader.up {
+  top: 0;
 }
 
 .shopheader > .logolink {

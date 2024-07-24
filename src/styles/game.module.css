@@ -79,7 +79,7 @@
 }
 
 .description div {
-  max-height: 40vh;
+  max-height: 30vh;
   overflow-y: scroll;
 }
 
@@ -96,6 +96,7 @@
 
 .moredetails {
   color: #949494;
+  font-size: 1em;
 }
 
 .moredetails a {

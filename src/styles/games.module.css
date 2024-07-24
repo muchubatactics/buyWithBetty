@@ -1,6 +1,8 @@
 .games {
   padding-right: 30px;
   padding-bottom: 20px;
+  padding-left: 30px;
+  flex: 1;
 }
 
 .games > h1 {
@@ -34,6 +36,10 @@
   gap: 30px;
 }
 
+.games > .single {
+  grid-template-columns: 1fr;
+}
+
 .games .game {
   display: grid;
   background-color: #202020;
@@ -42,6 +48,11 @@
   overflow: hidden;
 
   user-select: none;
+  transition: transform ease 300ms;
+}
+
+.games .game:hover {
+  transform: scale(1.05);
 }
 
 .game > :nth-child(2) {
@@ -53,6 +64,7 @@
 .game > :nth-child(2) > :nth-child(1) {
   display: flex;
   justify-content: space-between;
+  color: #8f8f8f;
 }
 
 .game > :nth-child(2) > :nth-child(1) > :nth-child(1):hover {
@@ -64,10 +76,9 @@
 .game > :nth-child(2) > a {
   color: inherit;
   text-decoration: none;
-  font-family: 'Roboto';
+  font-family: 'Inter';
   font-weight: 700;
   font-size: 1.4em;
-
 }
 
 .game  img {
@@ -77,9 +88,30 @@
   /* background-position: center center; */
 }
 
+.game > :nth-child(2) > :nth-child(2) {
+  display: flex;
+  margin: 4px 0px;
+}
+
+.game > :nth-child(2) > :nth-child(2) > :nth-child(n) {
+  fill: white;
+  margin: 5px;
+  height: 15px;
+  width: 15px;
+}
+
+
 @media (prefers-color-scheme: light) {
   .games .game {
     background-color: #e2e2e2;
+  }
+
+  .game > :nth-child(2) > :nth-child(2) > :nth-child(n) {
+    fill: #242424;
+  }
+
+  .game > :nth-child(2) > :nth-child(1) {
+    color:#5e5e5e;
   }
 
 

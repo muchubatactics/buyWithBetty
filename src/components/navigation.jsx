@@ -6,7 +6,7 @@ import { useState } from "react";
 import res from './setup.jsx';
 
 export default function Navigation() {
-  const [selected, setSelected] = useState('All time top');
+  const [selected, setSelected] = useState('');
   const [showPlatforms, setShowPlatforms] = useState(false);
   const [showGenres, setShowGenres] = useState(false);
 

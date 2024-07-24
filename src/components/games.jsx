@@ -9,16 +9,16 @@ import res from "./setup.jsx";
 export default function Games() {
   const [loading, setLoading] = useState(true);
   const [games, setGames] = useState([]);
+  const [display, setDisplay] = useState(0);
 
   const location = useLocation();
-  console.log(location);
 
 
   useEffect(() => {
     setLoading(true);
     let result = [];
 
-    let url = `${res.baseURL}games?key=${res.ky}`;
+    let url = `${res.baseURL}games?key=${res.ky}&page_size=${res.page_size}`;
     if (location.state && location.state.type == 'genre') url += `&genres=${location.state.id}`;
     if (location.state && location.state.type == 'platform') url += `&parent_platforms=${location.state.id}`;
 
@@ -43,6 +43,11 @@ export default function Games() {
           screenshots: [...Response.results[i].short_screenshots],
         }
 
+        obj.platforms = Response.results[i].parent_platforms.map((ptf) => {
+          return ptf.platform.slug;
+        })
+
+
         result.push(obj);
       }
 
@@ -65,15 +70,15 @@ export default function Games() {
       <div className={styles.custom}>
         <div>
           <span>Display options: </span>
-          <button>many</button>
-          <button>single</button>
+          <button onClick={() => setDisplay(0)}>many</button>
+          <button onClick={() => setDisplay(1)}>single</button>
         </div>
       </div>
       {
         loading ?
         <Loading />
         :
-        <main>
+        <main className={display ? styles.single : null}>
           {
             games.map((game) => {
               let imgs = [];
@@ -88,10 +93,16 @@ export default function Games() {
                   </Link>
                   <div>
                     <div>
-                      <span>Add to cart</span>
+                      <span>Add to cart +</span>
                       <span>$49.9</span>
                     </div>
-                    <div>Platforms</div>
+                    <div>
+                      {
+                        game.platforms.map((ptf, i) => {
+                          return <svg key={i}>{res.platform_icons[ptf]}</svg>;
+                        })
+                      }
+                    </div>
                     <Link to={str} state={{ screenshots: [...imgs], prev: {...location.state} }} >
                       <span>{game.name}</span>
                     </Link>

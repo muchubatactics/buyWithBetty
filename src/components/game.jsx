@@ -14,7 +14,6 @@ export default function Game() {
   const { screenshots } = location.state || {};
   const [isLoading, setIsLoading] = useState(true);
 
-  console.log(location);
 
   useEffect(() => {
     fetch(`https://api.rawg.io/api/games/${gameId}?key=${res.ky}`, {
@@ -28,14 +27,30 @@ export default function Game() {
     }).then((response) => {
       let data = {
         name: response.name,
-        description: response.description,
+        description: response.description_raw,
         website: response.website,
         released: response.released,
-        // genres: response.,
-        platforms: [...response.platforms], //an array of objs with platform val
-        // developers: response.,
-        // publishers: response.,
+        genres: null,
+        platforms: null, 
+        developers: null,
+        publishers: null,
       };
+
+      data.platforms = response.platforms.map((ptf) => {
+        return ptf.platform.name;
+      });
+
+      data.publishers = response.publishers.map((pub) => {
+        return pub.name;
+      });
+
+      data.developers = response.developers.map((dev) => {
+        return dev.name;
+      });
+
+      data.genres = response.genres.map((gen) => {
+        return gen.name;
+      });
 
       setGameDetails(data);
       setIsLoading(false);
@@ -53,7 +68,7 @@ export default function Game() {
       {
         <>
           <div className={styles.heading}>
-            <Link to='/shop/games/p' state={ {...location.prev} }>
+            <Link to='/shop/games/p' state={ {...location.state.prev} }>
               <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
                 <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z"/>
               </svg>
@@ -68,21 +83,46 @@ export default function Game() {
             <div>
               <div className={styles.description}>
                 <h1>Description</h1>
-                {isLoading ? null : <><div dangerouslySetInnerHTML={{__html: gameDetails.description}}></div></>}
+                {isLoading ? null : <><div>{gameDetails.description}</div></>}
                 <div className={styles.overlay}></div>  
               </div>
               <div className={styles.moredetails}>
                 <span>
-                  {isLoading ? null : <>Website: <a href={gameDetails.website}>{gameDetails.website}</a></>}
+                  {isLoading ? null : <><b>Website:</b> <a href={gameDetails.website}>{gameDetails.website}</a></>}
                 </span>
                 <span>
-                  {isLoading ? null : <>Released: {gameDetails.released}</>}
+                  {isLoading ? null : <><b>Released:</b> {gameDetails.released}</>}
                 </span>
-                <span>Platforms:
+                <span><b>Platforms:</b>
                   {
-                    // gameDetails.platforms.map((obj) => {
-                    //   return (<p>{obj.platform}</p>);
-                    // })
+                    isLoading ? null :
+                    gameDetails.platforms.map((str, i) => {
+                      return <span key={i}> {str},</span>;
+                    })
+                  }
+                </span>
+                <span><b>Genres:</b>
+                  {
+                    isLoading ? null :
+                    gameDetails.genres.map((str, i) => {
+                      return <span key={i}> {str},</span>;
+                    })
+                  }
+                </span>
+                <span><b>Developers:</b>
+                  {
+                    isLoading ? null :
+                    gameDetails.developers.map((str, i) => {
+                      return <span key={i}> {str},</span>;
+                    })
+                  }
+                </span>
+                <span><b>Publishers:</b>
+                  {
+                    isLoading ? null :
+                    gameDetails.publishers.map((str, i) => {
+                      return <span key={i}> {str},</span>;
+                    })
                   }
                 </span>
               </div>

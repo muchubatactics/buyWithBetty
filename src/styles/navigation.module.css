@@ -1,7 +1,9 @@
 .navigation {
   overflow-y: scroll;
-  height: 100%;
   user-select: none;
+
+  position: sticky;
+  top: 0;
 }
 
 .navigation > a, .navigation > button {

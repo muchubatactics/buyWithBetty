@@ -1,16 +1,19 @@
 .main {
-  display: grid;
-  grid-template-columns: 250px 1fr;
-  height: 88vh;
-
-  column-gap: 40px;
+  display: flex;
+  /* height: 88vh; */
 }
 
 .sidebar {
   margin-left: 30px;
   margin-top: 30px;
+  position: sticky;
+  flex-shrink: 0;
+
+  min-width: 240px;
   
-  overflow-y: hidden;
+  top: 100px;
+  
+  position: -webkit-sticky;
 }
 
 .sidebar ::-webkit-scrollbar {
