@@ -5,6 +5,8 @@
   margin: 0 30px;
 
   color: grey;
+
+  position: relative;
 }
 
 .container.focusedon {
@@ -12,7 +14,7 @@
   color: black;
 }
 
-.container.focusedon svg{
+.container.focusedon form > svg{
   fill: black;
 }
 
@@ -36,10 +38,92 @@
   font-family: 'Ubuntu', sans-serif;
 }
 
-/* .dropdown {
+.dropdown {
   position: absolute;
   z-index: 1;
-} */
+
+  background-color: black;
+  color: white;
+
+  width: 100%;
+  top: 100%;
+  left: 0;
+
+  border-radius: 20px;
+  margin-top: 10px;
+
+  padding: 0 16px;
+  padding-bottom: 20px;
+
+  box-sizing: border-box;
+  box-shadow: 0 20px 50px 5px #202020;
+
+}
+
+.dropdown > .loading {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdown > h2 {
+  font-family: 'Roboto';
+  margin: 20px 0;
+}
+
+.dropdown > h2 > span {
+  opacity: 0.6;
+  font-weight: 300;
+}
+
+.dropdown > div {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  padding: 8px 0;
+}
+
+.dropdown > div > a {
+  width: 54px;
+  height: 70px;
+  margin-right: 10px;
+}
+
+.dropdown > div > a > div {
+  background-position: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  border-radius: 6px;
+  height: 100%;
+  width: 100%;
+}
+
+.dropdown > div > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dropdown > div > div > div {
+  display: flex;  
+}
+
+.dropdown > div > div > a {
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  margin-top: 5px;
+}
+
+.dropdown > div > div > div > svg {
+  height: 10px;
+  width: 10px;
+  margin: 0;
+  margin-right: 5px;
+  fill: white;
+}
+
 
 .container:hover {
   background-color: rgb(236, 236, 236);
@@ -47,18 +131,18 @@
   color: black;
 }
 
-.container:hover svg {
+.container:hover form svg {
   fill: black;
 }
 
-.container svg {
+.container form svg {
   width: auto;
   height: 100%;
   margin-right: 10px;
   margin-top: 5px;
 }
 
-.container svg {
+.container form svg {
   fill: grey;
 }
 
@@ -89,6 +173,23 @@
 
   .container svg {
     fill: rgb(78, 78, 78);
+  }
+
+  .dropdown {
+    background-color:whitesmoke;
+    box-shadow: 0 20px 150px 5px rgb(170, 170, 170);
+  }
+
+  .dropdown > div > div > a {
+    color: #242424;
+  }
+
+  .dropdown > div > div > div > svg {
+    fill: black;
+  }
+
+  .dropdown > h2 {
+    color: #242424;
   }
   
 }
