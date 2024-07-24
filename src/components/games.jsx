@@ -18,9 +18,13 @@ export default function Games() {
     setLoading(true);
     let result = [];
 
-    let url = `${res.baseURL}games?key=${res.ky}&page_size=${res.page_size}`;
-    if (location.state && location.state.type == 'genre') url += `&genres=${location.state.id}`;
-    if (location.state && location.state.type == 'platform') url += `&parent_platforms=${location.state.id}`;
+    let url;
+    if (location.state && location.state.query) url = location.state.query;
+    else {
+      url =`${res.baseURL}games?key=${res.ky}&page_size=${res.page_size}`;
+      if (location.state && location.state.type == 'genre') url += `&genres=${location.state.id}`;
+      if (location.state && location.state.type == 'platform') url += `&parent_platforms=${location.state.id}`;
+    } 
 
     fetch(url, {
       method: "GET",
