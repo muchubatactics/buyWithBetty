@@ -14,6 +14,117 @@ export default function Games() {
   const location = useLocation();
 
 
+  function buildQuery(str) {
+    let url =`${res.baseURL}games?key=${res.ky}&page_size=${res.page_size}`;
+
+    let year = res.date.getFullYear();
+    let month = res.date.getMonth();
+    let day = res.date.getDate();
+
+    if (str == 'Best of the year') return url + `&dates=${year}-01-01,${year}-12-31`;
+
+    if (str[0] == 'P') return url + `&dates=${year - 1}-01-01,${year - 1}-12-31`;
+
+    // last 30 days
+    let month1;
+    let year1;
+    if (month == 1) {
+      year1 = year - 1;
+      month1 = 12;
+    } else {
+      month1 = month - 1;
+      year1 = year;
+    }
+
+    if (month < 9) month = `0${month}`;
+    if (month1 < 9) month1 = `0${month1}`;
+    if (day < 9) day = `0${day}`;
+    
+    if (str == 'Last 30 days') return url + `&dates=${year1}-${month1}-${day},${year}-${month}-${day}`;
+
+    //this week
+    year = res.date.getFullYear();
+    month = res.date.getMonth();
+    day = res.date.getDate();
+    
+    month1 = month;
+    let month2;
+    let yearr1 = year, yearr2 = year;
+    let day2;
+    let dayOfWeek = res.date.getDay();
+    let day1 = day - dayOfWeek;
+
+    if (day1 < 0) {
+      day1 += 30;
+      month1 = month - 1;
+
+      if (!month1) {
+        month1 = 12;
+        yearr1 = year - 1;
+      }
+
+      day2 = day + 6 - dayOfWeek;
+      month2 = month;
+    } else {
+      day2 = day1 + 6;
+      month1 = month;
+      month2 = month;
+
+      if (day2 > 31) {
+        day2 -= 30;
+        month2 = month + 1;
+        if(month2 > 12) {
+          month2 = 1;
+          yearr2 = year + 1;
+        }
+      }
+
+    }
+
+    if (day1 < 9) day1 = `0${day1}`;
+    if (day2 < 9) day2 = `0${day2}`;
+    if (month1 < 9) month1 = `0${month1}`;
+    if (month2 < 9) month2 = `0${month2}`;
+
+    if (str == 'This week') return url + `&dates=${yearr1}-${month1}-${day1},${yearr2}-${month2}-${day2}`;
+
+
+    // next week;
+    day1 = day + 7 - dayOfWeek;
+    day2 = day1 + 6;
+    yearr1 = year; yearr2 = year;
+
+    if (day1 < 31) month1 = month;
+    else {
+      day1 -= 30;
+      month1 = month + 1;
+      
+      if (month1 > 12) {
+        month1 = 1;
+        yearr1 = year + 1;
+      }
+    }
+
+    if (day2 < 31) month2 = month;
+    else {
+      day2 -= 30;
+      month2 = month + 1;
+
+      if (month2 > 12) {
+        month2 = 1;
+        yearr2 = year + 1;
+      }
+    }
+
+    if (day1 < 9) day1 = `0${day1}`;
+    if (day2 < 9) day2 = `0${day2}`;
+    if (month1 < 9) month1 = `0${month1}`;
+    if (month2 < 9) month2 = `0${month2}`;
+
+    if (str == 'Next week') return url + `&dates=${yearr1}-${month1}-${day1},${yearr2}-${month2}-${day2}`;
+  }
+
+
   useEffect(() => {
     setLoading(true);
     let result = [];
@@ -22,8 +133,13 @@ export default function Games() {
     if (location.state && location.state.query) url = location.state.query;
     else {
       url =`${res.baseURL}games?key=${res.ky}&page_size=${res.page_size}`;
+
       if (location.state && location.state.type == 'genre') url += `&genres=${location.state.id}`;
       if (location.state && location.state.type == 'platform') url += `&parent_platforms=${location.state.id}`;
+
+      if (location.state && location.state.type == 'date') {
+        url = buildQuery(location.state.name);
+      }
     } 
 
     fetch(url, {
@@ -92,6 +208,7 @@ export default function Games() {
         :
         <main className={display ? styles.single : null}>
           {
+            games.length ? 
             games.map((game) => {
               let imgs = [];
               for (let i = 0; i < game.screenshots.length; i++) {
@@ -123,6 +240,8 @@ export default function Games() {
 
               );
             })
+            :
+            <h1>Nothing!</h1>
           }
         </main>
       }

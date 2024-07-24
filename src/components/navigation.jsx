@@ -12,8 +12,6 @@ export default function Navigation() {
 
   let countP = 0, countG = 0
 
-  let d = new Date();
-
   function handleClick(str) {
     setSelected(str);
   }
@@ -33,7 +31,7 @@ export default function Navigation() {
         </div>
         <div>This week</div>
       </Link>
-      <Link to='p' state={{name: 'Last week', type: 'date'}} className={selected == 'Next week' ? styles.selected : ''} onClick={() => { handleClick('Next week') }}>
+      <Link to='p' state={{name: 'Next week', type: 'date'}} className={selected == 'Next week' ? styles.selected : ''} onClick={() => { handleClick('Next week') }}>
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 16"><path d="M19.788.212a.712.712 0 00-.503-.197h-1.428a.712.712 0 00-.502.197.619.619 0 00-.212.468v7.05a.669.669 0 00-.146-.198L9.073.15c-.141-.132-.26-.177-.357-.135-.097.042-.145.152-.145.333V7.73a.668.668 0 00-.145-.198L.502.15C.361.018.242-.027.145.015.048.057 0 .167 0 .348v15.304c0 .18.049.291.145.333.097.042.216-.004.357-.135l7.924-7.382a.906.906 0 00.145-.198v7.382c0 .18.049.291.145.333.097.041.216-.004.357-.136l7.924-7.381a.909.909 0 00.146-.198v7.05c0 .18.07.335.212.467a.712.712 0 00.502.197h1.429c.193 0 .36-.065.502-.197a.62.62 0 00.212-.468V.68a.62.62 0 00-.212-.468z"></path></svg>
         </div>
@@ -47,11 +45,11 @@ export default function Navigation() {
         </div>
         <div>Best of the year</div>
       </Link>
-      <Link to='p' state={{name: 'Popular in ' + String(d.getFullYear() - 1), type: 'date'}} className={selected == 'Popular' ? styles.selected : ''} onClick={ () => handleClick('Popular') }>
+      <Link to='p' state={{name: 'Popular in ' + String(res.date.getFullYear() - 1), type: 'date'}} className={selected == 'Popular' ? styles.selected : ''} onClick={ () => handleClick('Popular') }>
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 16"><path d="M0 4h6v12H0V4zm9-4h6v16H9V0zm9 6h6v10h-6V6z"></path></svg>
         </div>
-        <div>Popular in {d.getFullYear() - 1}</div>
+        <div>Popular in {res.date.getFullYear() - 1}</div>
       </Link>
       <Link to='p' state={{name: 'All time top', type: 'other'}} className={selected == 'All time top' ? styles.selected : ''} onClick={() => { handleClick('All time top') }}>
         <div>
