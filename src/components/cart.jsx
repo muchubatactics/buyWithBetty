@@ -15,12 +15,12 @@ export default function Cart() {
           cartfn.getCart().map((obj) => {
             return (
               <div key={obj.id} className={styles.cartitem}>
-                <div className={styles.itemimage}></div>
+                <div className={styles.itemimage} style={{backgroundImage: 'url(' + obj.image + ')'}}></div>
                 <div>
+                  <button onClick={() => {cartfn.removeFromCart(obj.id)}}>X</button>
                   <span>{obj.name}</span>
                   <span>${obj.price}</span>
                 </div>
-                <button onClick={() => {cartfn.removeFromCart(obj.id)}}>X</button>
               </div>
             );
           })

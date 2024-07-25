@@ -259,9 +259,9 @@ const res = (() => {
     }
 
     function getTotalPrice() {
-      return cart.reduce((prev, curr) => {
+      return Math.round(cart.reduce((prev, curr) => {
         return prev + curr.price;
-      }, 0);
+      }, 0));
     }
 
     function removeFromCart(id) {
@@ -269,7 +269,12 @@ const res = (() => {
         return obj.id == id;
       });
 
-      cart = cart.slice(0, index) + cart.slice(index + 1, -1); /////////TODO
+      if (index == -1) {
+        console.error('tried to remove none existing cart item, should be impossible');
+        return;
+      }
+      
+      cart.splice(index, 1); /////////TODO
     }
 
     function getLength() {

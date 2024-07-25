@@ -132,6 +132,14 @@
   margin-top: auto;
 }
 
+.buttontoadd {
+  cursor: pointer;
+}
+
+.alreadyadded {
+  color: goldenrod;
+}
+
 @media (prefers-color-scheme: light) {
   .heading svg {
     fill: black;
