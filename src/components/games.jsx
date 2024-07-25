@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Loading from "./loading.jsx";
 
 import res from "./setup.jsx";
+import OrderBy from "./orderby.jsx";
 
 export default function Games() {
   const [loading, setLoading] = useState(true);
@@ -188,6 +189,9 @@ export default function Games() {
     <div className={styles.games}>
       <h1>{location.state ? location.state.name : 'All time top'}</h1>
       <div className={styles.custom}>
+
+        <OrderBy />
+
         <div>
           <span>Display options: </span>
           <div onClick={() => setDisplay(0)} className={!display ? styles.curdisplay : null}>
@@ -201,6 +205,7 @@ export default function Games() {
             </svg>
           </div>
         </div>
+
       </div>
       {
         loading ?

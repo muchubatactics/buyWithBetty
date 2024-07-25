@@ -1,0 +1,68 @@
+.orderby {
+  width: auto;
+  min-width: 150px;
+  padding: 10px 16px;
+  background-color: hsla(0,0%,100%,.07);
+  border-radius: 8px;
+  font-size: 16px;
+  color: #fff;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  font-family: 'Ubuntu', sans-serif;
+
+  user-select: none;
+  cursor: pointer;
+}
+
+.orderby > span {
+  margin-right: 5px;
+}
+
+.orderby > :nth-child(2) {
+  font-weight: 700;
+}
+
+.orderby > svg {
+  fill: rgb(167, 167, 167);
+}
+
+
+
+.orderby > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  z-index: 9;
+
+  width: 100%;
+  border-radius: 8px;
+
+  background-color: #fff;
+  color: black;
+}
+
+.orderby > div > ul {
+  list-style-type: none;
+  padding: 10px 10px;
+  margin: 0;
+}
+
+.orderby > div > ul > li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3px 10px;
+
+}
+
+.orderby > div > ul > li:hover {
+  background-color: rgb(238, 238, 238);
+}
+
+
+.orderby > div > ul > li svg {
+  fill: goldenrod;
+}
