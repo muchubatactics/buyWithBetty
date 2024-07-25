@@ -248,10 +248,11 @@ const res = (() => {
       cart = [];
     }
 
-    function addToCart({image, name, price, id}) {
+    function addToCart({image, name, price, id}, cb) {
       cart.push({
         image, name, id, price,
       });
+      if (cb) cb(true);
     }
 
     function getCart() {
@@ -264,7 +265,7 @@ const res = (() => {
       }, 0));
     }
 
-    function removeFromCart(id) {
+    function removeFromCart(id, cb) {
       let index = cart.findIndex((obj) => {
         return obj.id == id;
       });
@@ -275,6 +276,7 @@ const res = (() => {
       }
       
       cart.splice(index, 1); /////////TODO
+      if (cb) cb(false);
     }
 
     function getLength() {

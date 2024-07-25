@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import styles from '../styles/games.module.css';
 import { useEffect, useState } from "react";
@@ -6,10 +6,12 @@ import Loading from "./loading.jsx";
 
 import res from "./setup.jsx";
 import OrderBy from "./orderby.jsx";
+import GameCard from "./gamecard.jsx";
 
 export default function Games() {
   const [loading, setLoading] = useState(true);
   const [games, setGames] = useState([]);
+  // display as in 0 grid, 1 single
   const [display, setDisplay] = useState(0);
 
   // no ordering on all time top
@@ -226,47 +228,8 @@ export default function Games() {
                 imgs.push(game.screenshots[i].image);
               }
               let str = `/shop/game/${game.id}`;
-              return (
-                <div className={styles.game} key={game.id}>
-                  <Link to={str} state={{ screenshots: [...imgs], prev: {...location.state} }} >
-                    <img src={game.background_image} alt="" />
-                  </Link>
-                  <div>
-                    <div>
-                      {
-                        res.cartFunctionality.doesContain(game.id) ? 
-                        <span className={styles.alreadyadded}>
-                          Added
-                          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
-                            <path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/>
-                          </svg>
-                        </span>
-                        :
-                        <span onClick={() => {
-                          res.cartFunctionality.addToCart({ 
-                            image: game.background_image,
-                            name: game.name,
-                            id: game.id,
-                            price: 49.9,
-                          });
-                        }}>Add to cart +</span>
-                      }
-                      <span>$49.9</span>
-                    </div>
-                    <div>
-                      {
-                        game.platforms.map((ptf, i) => {
-                          return <svg key={i}>{res.platform_icons[ptf]}</svg>;
-                        })
-                      }
-                    </div>
-                    <Link to={str} state={{ screenshots: [...imgs], prev: {...location.state} }} >
-                      <span>{game.name}</span>
-                    </Link>
-                  </div>
-                </div>
 
-              );
+              return <GameCard key={game.id} str={str} game={game} imgs={imgs} className={styles.game} displayStyle={display}/>
             })
             :
             <h1>Nothing!</h1>
