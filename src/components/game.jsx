@@ -128,7 +128,7 @@ export default function Game() {
                 </span>
               </div>
               <div>
-                <span>$100</span>
+                <span>$49.9</span>
                 {
                   isAdded ? 
                   <span className={styles.alreadyadded}>
