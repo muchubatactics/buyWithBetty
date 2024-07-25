@@ -234,20 +234,20 @@ const res = (() => {
     nintendo: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 16"><path d="M8 0h5a8 8 0 110 16H8A8 8 0 118 0zm-.135 1.935a6.065 6.065 0 000 12.13h5.12a6.065 6.065 0 000-12.13h-5.12zm-1.33 2.304h2.401l3.199 5.175V4.24h2.346v7.495H12.18L8.864 6.537v5.201H6.53l.005-7.499z"></path></svg>,
   };
 
-  // fetch(`https://api.rawg.io/api/games?key=${ky}&dates=2024-${date.getMonth()}-${date.getDay()},2024-${date.getMonth() - 1}-${date.getDay()}`, {
-  //     mode: 'cors',
-  //     method: 'GET',
-  //     headers: {
-  //       'Content-type': 'application/json',
-  //     }
-  //   }
-  // ).then((respose) => {
-  //   return respose.json();
-  // }).then((response) => {
-  //   console.log(response)
-  // }).catch((err) => {
-  //   console.error(err);
-  // });
+  fetch(`https://api.rawg.io/api/games?key=${ky}&ordering=-rating`, {
+      mode: 'cors',
+      method: 'GET',
+      headers: {
+        'Content-type': 'application/json',
+      }
+    }
+  ).then((respose) => {
+    return respose.json();
+  }).then((response) => {
+    console.log(response)
+  }).catch((err) => {
+    console.error(err);
+  });
 
   return { platforms, genres, ky, baseURL, platform_icons, page_size, date }
 })();

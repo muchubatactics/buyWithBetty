@@ -53,7 +53,7 @@ export default function OrderBy({ cb }) {
             e.stopPropagation();
             setCurrent('released');
             setIsExpanded(false);
-            cb('name');
+            cb('-released');
           }}>
             {
               current == 'released' ? 
@@ -72,7 +72,7 @@ export default function OrderBy({ cb }) {
             e.stopPropagation();
             setCurrent('updated');
             setIsExpanded(false);
-            cb('name');
+            cb('-updated');
           }}>
             {
               current == 'updated' ? 
@@ -91,7 +91,7 @@ export default function OrderBy({ cb }) {
             e.stopPropagation();
             setCurrent('rating');
             setIsExpanded(false);
-            cb('name');
+            cb('-rating');
           }}>
             {
               current == 'rating' ? 
@@ -110,7 +110,7 @@ export default function OrderBy({ cb }) {
             e.stopPropagation();
             setCurrent('metacritic');
             setIsExpanded(false);
-            cb('name');
+            cb('-metacritic');
           }}>
             {
               current == 'metacritic' ? 

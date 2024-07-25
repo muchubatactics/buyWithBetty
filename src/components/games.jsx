@@ -12,8 +12,10 @@ export default function Games() {
   const [games, setGames] = useState([]);
   const [display, setDisplay] = useState(0);
 
-  const location = useLocation();
+  // no ordering on all time top
+  const [order, setOrder] = useState('-rating');
 
+  const location = useLocation();
 
   function buildQuery(str) {
     let url =`${res.baseURL}games?key=${res.ky}&page_size=${res.page_size}`;
@@ -125,7 +127,6 @@ export default function Games() {
     if (str == 'Next week') return url + `&dates=${yearr1}-${month1}-${day1},${yearr2}-${month2}-${day2}`;
   }
 
-
   useEffect(() => {
     setLoading(true);
     let result = [];
@@ -141,7 +142,9 @@ export default function Games() {
       if (location.state && location.state.type == 'date') {
         url = buildQuery(location.state.name);
       }
-    } 
+    }
+    
+    if (location.state && location.state.name !== 'All time top') url += `&ordering=${order}`;
 
     fetch(url, {
       method: "GET",
@@ -161,13 +164,14 @@ export default function Games() {
           dominant_color: Response.results[i].dominant_color,
           genres: null,
           platforms: null,
-          screenshots: [...Response.results[i].short_screenshots],
+          screenshots: Response.results[i].short_screenshots ? [...Response.results[i].short_screenshots] : [],
         }
 
-        obj.platforms = Response.results[i].parent_platforms.map((ptf) => {
+        obj.platforms = Response.results[i].parent_platforms ? Response.results[i].parent_platforms.map((ptf) => {
           return ptf.platform.slug;
-        })
+        }) : [];
 
+        // console.log(Response.results[i].metacritic, Response.results[i].rating, Response.results[i].released);
 
         result.push(obj);
       }
@@ -182,7 +186,7 @@ export default function Games() {
     return () => {
 
     }
-  }, [location.state]);
+  }, [location.state, order]);
 
 
   return (
@@ -190,7 +194,9 @@ export default function Games() {
       <h1>{location.state ? location.state.name : 'All time top'}</h1>
       <div className={styles.custom}>
 
-        <OrderBy />
+        {
+          !location.state || location.state.name == 'All time top' ? <div></div> : <OrderBy cb={setOrder}/>
+        }
 
         <div>
           <span>Display options: </span>
