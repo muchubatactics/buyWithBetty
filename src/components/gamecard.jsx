@@ -32,7 +32,8 @@ export default function GameCard({ str, game, imgs, displayStyle}) {
                 name: game.name,
                 id: game.id,
                 price: 49.9,
-              }, setIsAdded);
+                cb: setIsAdded,
+              });
             }}>Add to cart +</span>
           }
           <span>$49.9</span>

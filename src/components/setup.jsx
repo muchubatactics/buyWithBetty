@@ -245,12 +245,15 @@ const res = (() => {
     let cart = [];
 
     function clearCart() {
+      for (let i = 0; i < cart.length; i++) {
+        cart[i].cb(false);
+      }
       cart = [];
     }
 
-    function addToCart({image, name, price, id}, cb) {
+    function addToCart({image, name, price, id, cb}) {
       cart.push({
-        image, name, id, price,
+        image, name, id, price, cb
       });
       if (cb) cb(true);
     }
@@ -265,7 +268,7 @@ const res = (() => {
       }, 0));
     }
 
-    function removeFromCart(id, cb) {
+    function removeFromCart(id) {
       let index = cart.findIndex((obj) => {
         return obj.id == id;
       });
@@ -275,8 +278,8 @@ const res = (() => {
         return;
       }
       
+      cart[index].cb(false);
       cart.splice(index, 1); /////////TODO
-      if (cb) cb(false);
     }
 
     function getLength() {

@@ -138,7 +138,17 @@
 
 .alreadyadded {
   color: goldenrod;
+  display: flex;
+  align-items: center;
+  user-select: none;
 }
+
+
+.alreadyadded svg {
+  fill: goldenrod;
+  margin-left: 5px;
+}
+
 
 @media (prefers-color-scheme: light) {
   .heading svg {

@@ -3,6 +3,7 @@
   color: goldenrod;
   display: flex;
   align-items: center;
+  user-select: none;
 }
 
 .alreadyadded svg {
@@ -21,7 +22,7 @@
   transition: transform ease 300ms;
 }
 
-.games .game:hover {
+.game:hover {
   transform: scale(1.05);
 }
 

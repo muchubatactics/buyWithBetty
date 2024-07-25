@@ -13,6 +13,7 @@ export default function Game() {
   const { gameId } = useParams();
   const { screenshots } = location.state || {};
   const [isLoading, setIsLoading] = useState(true);
+  const [isAdded, setIsAdded] = useState(res.cartFunctionality.doesContain(gameId));
 
 
   useEffect(() => {
@@ -129,7 +130,7 @@ export default function Game() {
               <div>
                 <span>$100</span>
                 {
-                  res.cartFunctionality.doesContain(gameId) ? 
+                  isAdded ? 
                   <span className={styles.alreadyadded}>
                     Added
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
@@ -137,9 +138,16 @@ export default function Game() {
                     </svg>
                   </span>
                   :
-                  <span className={styles.buttontoadd} onClick={() => {res.cartFunctionality.addToCart(
-                    {image: screenshots ? screenshots[0] : null, name: gameDetails.name, price: 49.9, id: gameId}
-                  )}}>Add to cart +</span>
+                  <span className={styles.buttontoadd} 
+                  onClick={() => 
+                    {
+                      res.cartFunctionality.addToCart({
+                        image: screenshots ? screenshots[0] : null, name: gameDetails.name, price: 49.9, id: gameId, cb: setIsAdded,
+                      });
+                    }
+                  }>
+                    Add to cart +
+                  </span>
                 }
               </div>
             </div>
