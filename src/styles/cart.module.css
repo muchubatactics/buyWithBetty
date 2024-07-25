@@ -1,0 +1,43 @@
+.cart {
+  display: flex;
+  flex-direction: column;
+
+  max-height: 100vh;
+  box-sizing: border-box;
+  padding: 30px;
+  height: 100%;
+}
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+}
+
+.heading > div {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+
+  font-size: 1.5em;
+}
+
+.heading > button {
+  border: 0;
+  background-color: transparent;
+  color: rgb(165, 165, 165);
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2em;
+
+  cursor: pointer;
+}
+
+.bottom {
+  margin-top: auto;
+}
+
+.cart > main {
+  flex: 1 1 auto;
+  /* max-height: 80vh; */
+  overflow-y: auto;
+
+  background-color: red;
+}

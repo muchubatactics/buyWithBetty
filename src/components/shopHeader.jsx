@@ -4,6 +4,7 @@ import Searchbar from "./searchbar";
 
 import '../styles/shopheader.css';
 import { useEffect, useState } from "react";
+import Cart from "./cart";
 
 export default function Shopheader() {
   const [showDialog, setShowDiaog] = useState(false);
@@ -44,7 +45,9 @@ export default function Shopheader() {
         </svg>
       </div>
       <div className={showDialog ? "dialoghelp on" : "dialoghelp off"} onClick={() => {setShowDiaog(false)}}>
-        <div className={showDialog ? "cart-itself on": "cart-itself"} onClick={(e) => {e.stopPropagation()}}></div>
+        <div className={showDialog ? "cart-itself on": "cart-itself"} onClick={(e) => {e.stopPropagation()}}>
+          <Cart />
+        </div>
       </div>
     </header>
   ); 

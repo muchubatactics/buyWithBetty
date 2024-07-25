@@ -93,6 +93,8 @@
 
   background-color: rgb(32, 32, 32);
   cursor: default;
+
+  box-sizing: border-box;
 }
 
 .shopheader  .cart-itself.on {
