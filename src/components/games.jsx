@@ -19,6 +19,8 @@ export default function Games() {
 
   const location = useLocation();
 
+  console.log(location);
+
   function buildQuery(str) {
     let url =`${res.baseURL}games?key=${res.ky}&page_size=${res.page_size}`;
 
@@ -148,6 +150,7 @@ export default function Games() {
     
     if (location.state && location.state.name !== 'All time top') url += `&ordering=${order}`;
 
+    console.log(url);
     fetch(url, {
       method: "GET",
       mode: "cors",
