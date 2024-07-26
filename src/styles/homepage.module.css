@@ -109,7 +109,7 @@
   
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
 
   .homepage header {
     font-size: 3px;
@@ -122,8 +122,9 @@
   }
 
   .homepage > main > :nth-child(4) {
-    right: -40vw;
-    height: 70vh;
+    top: 40vh;
+    right: -20vw;
+    height: 60vh;
   }
 
   .homepage main {

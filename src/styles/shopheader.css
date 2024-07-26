@@ -82,7 +82,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  bottom: -100px;
+  bottom: 0;
   z-index: 2;
   
   width: 25vw;
@@ -148,6 +148,12 @@ body {
 
 }
 
+@media (max-width: 1400px) {
+  .shopheader  .cart-itself {
+    width: 50vw;
+  }
+}
+
 @media (max-width: 1200px) {
   .shopheader > .logolink {
     font-size: 3px;
@@ -157,6 +163,12 @@ body {
     padding: 10px 20px;
   }
 
+}
+
+@media (max-width: 800px) {
+  .shopheader  .cart-itself {
+    width: 60vw;
+  }
 }
 
 @media (max-width: 600px) {
@@ -169,6 +181,9 @@ body {
     width: 40px;
   }
   
+  .shopheader  .cart-itself {
+    width: 70vw;
+  }
 }
 
 @media (max-width: 500px) {

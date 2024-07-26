@@ -47,6 +47,7 @@
   width: 100%;
 
   box-sizing: border-box;
+  align-items: center;
 
   margin: 20px 0;
 }
@@ -86,5 +87,34 @@
   color: rgb(165, 165, 165);
 }
 
+@media (max-width: 600px) {
+  .heading {
+    font-size: 0.7em;
+  }
+
+  .cart {
+    padding: 15px;
+  }
+
+  .cart > main {
+    padding: 10px 0;
+  }
+
+  .cartitem {
+    margin: 10px 0;
+    font-size: 0.8em;
+  }
+  
+  .itemimage {
+    aspect-ratio: 1.7 / 1;
+    width: auto;
+    height: 50px;
+    margin-right: 5px;
+  }
 
 
+  .bottom {
+    font-size: 0.8em;
+  }
+
+}
