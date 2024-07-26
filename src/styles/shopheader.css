@@ -147,3 +147,34 @@ body {
   }
 
 }
+
+@media (max-width: 1200px) {
+  .shopheader > .logolink {
+    font-size: 3px;
+  }
+
+  .shopheader {
+    padding: 10px 20px;
+  }
+
+}
+
+@media (max-width: 600px) {
+  .shopheader > .logolink {
+    font-size: 2px;
+  }
+
+  .shopheader > .cart {
+    height: 40px;
+    width: 40px;
+  }
+  
+}
+
+@media (max-width: 500px) {
+  .shopheader > .logolink {
+    font-size: 1.5px;
+  }
+}
+
+
