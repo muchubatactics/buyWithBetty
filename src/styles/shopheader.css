@@ -73,6 +73,10 @@
   transition: opacity 500ms ease, height 1ms ease;
 }
 
+.dialoghelp.off {
+  display: none;
+}
+
 .shopheader > .dialoghelp.on {
   opacity: 1;
   height: 100vh;
@@ -177,12 +181,17 @@ body {
   }
 
   .shopheader > .cart {
-    height: 40px;
-    width: 40px;
+    height: 30px;
+    width: 30px;
+    margin-right: -10px;
   }
   
   .shopheader  .cart-itself {
     width: 70vw;
+  }
+
+  .shopheader {
+    padding: 5px 10px;
   }
 }
 
