@@ -16,7 +16,7 @@ export default function Navigation({ mobcb }) {
   let countP = 0, countG = 0
 
   function handleClick(str) {
-    mobcb();
+    if (mobcb) mobcb();
     setSelected(str);
   }
 
