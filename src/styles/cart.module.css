@@ -118,3 +118,19 @@
   }
 
 }
+
+@media (prefers-color-scheme: light) {
+  .cartitem > :nth-child(2) button {
+    background-color: white;
+  }
+
+  .cartitem > :nth-child(2) > :nth-child(3) {
+    color: rgb(94, 94, 94);
+  }
+
+  .heading > button {
+    color: rgb(94, 94, 94);
+  }  
+  
+}
+
