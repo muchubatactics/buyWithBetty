@@ -234,7 +234,7 @@
   }
 
   .heading > :nth-child(1) {
-    font-size: 0.7em;
+    font-size: 0.6em;
   }
 
   .heading {
@@ -246,14 +246,13 @@
     font-size: 14px;
   }
 
-
   .game {
     padding: 0 10px;
     box-sizing: border-box;
   }
 
   .heading > :nth-child(1) > :nth-child(1) {
-    margin-right: 10px;
+    margin-right: 5px;
   }
 
 }

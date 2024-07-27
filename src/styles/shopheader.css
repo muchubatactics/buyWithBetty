@@ -181,11 +181,11 @@ body {
   }
 
   .shopheader > .cart {
-    height: 30px;
-    width: 30px;
-    margin-right: -10px;
+    height: 40px;
+    width: 40px;
+    margin-right: -5px;
   }
-  
+
   .shopheader  .cart-itself {
     width: 70vw;
   }
