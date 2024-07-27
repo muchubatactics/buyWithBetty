@@ -81,7 +81,7 @@
   bottom: 20px;
   right: 20px;
 
-  background-color: white;
+  background-color: #242424;
 
   align-items: center;
   justify-content: center;
@@ -92,7 +92,7 @@
 }
 
 .navbutton svg {
-  fill: black;
+  fill: white;
 }
 
 .navbutton.active {
@@ -112,7 +112,7 @@
   display: flex;
   justify-content: flex-start;
 
-  background-color: rgb(85, 85, 85);
+  background-color: black;
 
 }
 
@@ -142,6 +142,10 @@
   border: 0;
 }
 
+.navbutton.active > div > button svg {
+  fill: white;
+}
+
 .navbutton.active > svg {
   display: none;
 }
@@ -155,7 +159,22 @@
   .games > .custom > :nth-child(2) > div > svg {
     fill: #242424;
   }
+
+  .navbutton {
+    background-color: #ececec;
+  }
   
+  .navbutton svg {
+    fill: black;
+  }
+  
+  .navbutton.active {
+    background-color: white;
+  }
+  
+  .navbutton.active > div > button svg {
+    fill: black;
+  }
 }
 
 @media (max-width: 800px) {

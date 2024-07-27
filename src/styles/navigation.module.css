@@ -76,11 +76,11 @@
 }
 
 @media (prefers-color-scheme: light) {
-  .navigation > a {
+  .navigation > a, .navigation > button {
     color: #242424;
   }
 
-  .navigation > a:hover > :nth-child(1) {
+  .navigation > a:hover > :nth-child(1), .navigation > button:hover > :nth-child(1) {
     background-color: #242424;
   }
 
@@ -88,7 +88,7 @@
     background-color: #242424;
   }
 
-  .navigation > a.selected > :nth-child(1) > svg, .navigation > a:hover > :nth-child(1) > svg {
+  .navigation > a.selected > :nth-child(1) > svg, .navigation > a:hover > :nth-child(1) > svg, .navigation > button:hover > :nth-child(1) > svg {
     fill: white;
   }
 
@@ -96,7 +96,7 @@
     background-color: #242424;
   }
 
-  .navigation > a > :nth-child(1) {
+  .navigation > a > :nth-child(1), .navigation > button > :nth-child(1) {
     background-color: #e4e4e4;
   }
 
@@ -104,6 +104,8 @@
     fill: black;
   }
 
-
+  .navigation > button > :nth-child(1) > svg {
+    fill: #242424;
+  }
   
 }
