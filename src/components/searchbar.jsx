@@ -76,7 +76,7 @@ export default function Searchbar() {
     e.preventDefault();
     let str = e.target[0].value;
 
-    let query = `${res.baseURL}games?key=${res.ky}&search=${str}&page_size=${res.page_size}`;
+    let query = `${res.baseURL}games?key=${res.ky}&search=${str}&page_size=${res.page_size}&search_exact=true`;
 
     e.target.reset();
     setIsLoading(false);
