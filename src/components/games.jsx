@@ -1,12 +1,13 @@
 import { useLocation } from "react-router-dom";
 
 import styles from '../styles/games.module.css';
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Loading from "./loading.jsx";
 
 import res from "./setup.jsx";
 import OrderBy from "./orderby.jsx";
 import GameCard from "./gamecard.jsx";
+import Navigation from "./navigation.jsx";
 
 export default function Games() {
   const [loading, setLoading] = useState(true);
@@ -18,6 +19,8 @@ export default function Games() {
   const [order, setOrder] = useState('-rating');
 
   const location = useLocation();
+
+  const navbtnref = useRef();
 
   function buildQuery(str) {
     let url =`${res.baseURL}games?key=${res.ky}&page_size=${res.page_size}`;
@@ -214,6 +217,38 @@ export default function Games() {
           </div>
         </div>
 
+      </div>
+      <div 
+        className={styles.navbutton} 
+        onClick={
+          () => {
+            document.getElementById('root').classList.add('no-scroll');
+            navbtnref.current.classList.add(styles.active);
+          }
+        } 
+        ref={navbtnref}
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+          <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+        </svg>
+        <div>
+          <Navigation mobcb={() => {
+            document.getElementById('root').classList.remove('no-scroll');
+            navbtnref.current.classList.remove(styles.active);
+          }}/>
+          <button 
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              document.getElementById('root').classList.remove('no-scroll');
+              navbtnref.current.classList.remove(styles.active);
+            }}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+              <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+            </svg>
+          </button>
+        </div>
       </div>
       {
         loading ?

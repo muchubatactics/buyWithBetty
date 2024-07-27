@@ -3,6 +3,8 @@
   padding-bottom: 20px;
   padding-left: 30px;
   flex: 1;
+
+  box-sizing: border-box;
 }
 
 .games > h1 {
@@ -73,6 +75,77 @@
   grid-template-columns: 1fr;
 }
 
+.navbutton {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+
+  background-color: white;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px;
+  border-radius: 50%;
+
+}
+
+.navbutton svg {
+  fill: black;
+}
+
+.navbutton.active {
+  bottom: 0;
+  right: 0;
+  
+  height: 100%;
+  width: 100vw;
+
+  border-radius: 0;
+  z-index: 11;
+
+  box-sizing: border-box;
+
+  padding-top: 20px;
+  padding-left: 40PX;
+  display: flex;
+  justify-content: flex-start;
+
+  background-color: rgb(85, 85, 85);
+
+}
+
+.navbutton > div {
+  display: none;
+  
+}
+
+.navbutton.active > div {
+  display: block;
+}
+
+.navbutton.active ::-webkit-scrollbar {
+  display: none;
+}
+
+.navbutton.active > div > button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  
+  background-color: transparent;
+  border: 0;
+}
+
+.navbutton.active > svg {
+  display: none;
+}
+
 @media (prefers-color-scheme: light) {
 
   .games > .custom > :nth-child(2) > div {
@@ -89,8 +162,11 @@
   .games > h1 {
     margin: 20px 0;
   }
-}
 
+  .navbutton {
+    display: flex;
+  }
+}
 
 @media (max-width: 600px) {
   .games > h1 {
